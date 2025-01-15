@@ -23,15 +23,12 @@ function addTask() {
     dueDateData.innerHTML = dueDate.value;
     tr.appendChild(dueDateData);
 
-    const div = document.createElement("div");
     const span = document.createElement("span");
-    const arr = ["edit", "delete"];
-    arr.forEach(
-      (text) =>
-        span.innerHTML += `<button id="${text}-button">${text}</button>`
-    );
-    div.appendChild(span);
-    tr.appendChild(div);
+    span.innerHTML = `
+    <button id="edit-button">Edit</button>
+    <button id="delete-button">Delete</button>
+    `;
+    tr.appendChild(span);
 
     listContainer.appendChild(tr);
     resetBtn.style.display = "block";
