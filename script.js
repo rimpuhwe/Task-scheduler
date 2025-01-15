@@ -33,6 +33,32 @@ function addTask() {
   save();
 }
 
+function sortTasksByDueDate() {
+  const rows = Array.from(listContainer.querySelectorAll("tr"));
+  rows.sort((a, b) => {
+    const dateA = new Date(a.cells[2].innerText);
+    const dateB = new Date(b.cells[2].innerText);
+    return dateA - dateB;
+  });
+  rows.forEach((row) => listContainer.appendChild(row));
+}
+function editTask(tr){
+  const title = tr.cells[0].innerText
+  const description = tr.cells[1].innerText
+  const dueDate = tr.cells[2].innerText
+  inputText.value = title
+  description.value = description
+  dueDate.value = dueDate
+  save()
+}
+function save() {
+  localStorage.setItem("data", listContainer.innerHTML);
+}
+function showData(){
+    listContainer.innerHTML = localStorage.getItem('data');
+
+}
+showData();
 listContainer.addEventListener(
   "click",
   (e) => {
@@ -49,21 +75,4 @@ listContainer.addEventListener(
 );
 
 //sorting due dates
-function sortTasksByDueDate() {
-  const rows = Array.from(listContainer.querySelectorAll("tr"));
-  rows.sort((a, b) => {
-    const dateA = new Date(a.cells[2].innerText);
-    const dateB = new Date(b.cells[2].innerText);
-    return dateA - dateB;
-  });
-  rows.forEach((row) => listContainer.appendChild(row));
-}
-function save() {
-  localStorage.setItem("data", listContainer.innerHTML);
-}
-function showData(){
-    listContainer.innerHTML = localStorage.getItem('data');
-
-}
-showData();
 addTaskBtn.addEventListener("click", addTask);
