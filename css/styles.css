@@ -10,6 +10,8 @@
   --background-color: #f5f5f5;
   --color: #333;
   --shade-color: #ababab;
+  --button-background : #000012;
+  --delete-background :#df0303
 }
 body {
   background-color: var(--background-color);
@@ -23,11 +25,15 @@ h1 {
   text-decoration: underline;
 }
 #container {
-  width: 80%;
-  border: 1px solid red;
+  width: 90%;
   display: flex;
   justify-content: space-between;
+  gap:15px;
   margin: 10px auto;
+}
+#delete-button:hover{
+  background: var(--delete-btn);
+  color:var(--background-color);
 }
 form {
   width: 50%;
@@ -62,8 +68,13 @@ button {
   border: 1px solid var(--shade-color);
   transition: background 0.5s ease-in;
 }
+#reset-btn{
+  position:absolute;
+  bottom: 5px;
+  display:none;
+}
 button:hover {
-  background: #000012;
+  background: var(--button-background);
   color: #b4b4b4;
   font-weight: 700;
 }
@@ -72,17 +83,18 @@ textarea {
 }
 .task-list {
   width: 50%;
-  border: 1px solid green;
-  padding: 15px;
+  padding: 10px 20px;
+  position:relative;
 }
 
 tr.checked {
   text-decoration: line-through;
-  text-decoration-color: #000010;
-  color: grey;
+  text-decoration-color: var(--button-background);
+  color: #808080;
 }
 table {
   width: 100%;
+  table-layout: fixed;
   margin:10px 0;
   border-bottom: 1px solid var(--shade-color);
   border-collapse:collapse;
@@ -101,8 +113,12 @@ span{
     font-size: 20px;
     margin:10px auto;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
+    display:flex;
+    justify-content:center;
     align-items: center;
-    cursor:pointer;
+    gap:10px;
+}
+span button{
+  width:40%;
+  padding:5px 10px;
 }
