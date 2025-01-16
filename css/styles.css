@@ -31,6 +31,9 @@ h1 {
   gap:15px;
   margin: 10px auto;
 }
+#delete-button{
+  background:#e8e7e7
+}
 #delete-button:hover{
   background: var(--delete-background);
   color:var(--background-color);
@@ -66,7 +69,26 @@ button {
   width: 35%;
   border-radius: 5px;
   border: 1px solid var(--shade-color);
+  color:var(--button-background);
+  font-weight: bold;
+  background:transparent;
   transition: background 0.5s ease-in;
+}
+.button-container{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top:10px;
+  
+}
+#save-btn{
+  background: var(--button-background);
+  color: #b4b4b4;
+  display:none;
+}
+#save-btn:hover{
+  background: transparent;
+  color:var(--button-background)
+  
 }
 #reset-btn{
   position:absolute;
