@@ -32,7 +32,8 @@ h1 {
   margin: 10px auto;
 }
 #delete-button{
-  background:#e8e7e7
+  background:#e8e7e7;
+  width:60%;
 }
 #delete-button:hover{
   background: var(--delete-background);
