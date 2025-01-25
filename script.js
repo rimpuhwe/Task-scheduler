@@ -16,7 +16,7 @@ function addTask() {
     tr.appendChild(title);
 
     const descriptionData = document.createElement("td");
-    descriptionData.innerHTML = description.innerHTML;
+    descriptionData.innerHTML = description.value;
     tr.appendChild(descriptionData);
 
     const dueDateData = document.createElement("td");
@@ -26,7 +26,7 @@ function addTask() {
     const span = document.createElement("span");
     span.innerHTML = `
     <button id="edit-button" onclick="editTask(this)">Edit</button>
-    <button id="delete-button">Delete</button>
+    <button id="delete-button" onclick="deleteTask(this)">Delete</button>
     `;
     tr.appendChild(span);
 
@@ -49,11 +49,16 @@ function editTask(button) {
   description.value = descriptionData;
   dueDate.value = dueDateData;
   saveBtn.style.display = "block";
+  
 
   save();
 }
-function update(){
-  
+function deleteTask(button){
+  const tr = button.parentElement.parentElement;
+  listContainer.removeChild(tr);
+  save();
+  sortOutDatesByDue();
+
 }
 function sortOutDatesByDue() {
   const rows = Array.from(listContainer.querySelectorAll("tr"));
