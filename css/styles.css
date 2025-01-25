@@ -33,7 +33,10 @@ h1 {
 }
 #delete-button{
   background:#e8e7e7;
-  width:60%;
+  width:65%;
+}
+#edit-button{
+  width:50%;
 }
 #delete-button:hover{
   background: var(--delete-background);
@@ -130,18 +133,37 @@ td {
   border:none
 }
 tr{
-    border-bottom: 1px solid var(--shade-color)
+  border-bottom: 1px solid var(--shade-color)
 }
 span{
-    font-size: 20px;
-    margin:10px auto;
-    font-weight: bold;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    gap:10px;
+  font-size: 20px;
+  margin:10px auto;
+  font-weight: bold;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  gap:10px;
 }
 span button{
   width:40%;
   padding:5px 10px;
+}
+@media  screen and (max-width: 1000px){
+  #container{
+    width:100%;
+    flex-direction: column;
+    
+  }
+  form{
+    width:100%;
+  }
+  .task-list {
+    width: 100%;
+  }
+  #edit-button{
+    width:65%;
+  }
+  #delete-button{
+    width:80%;
+  }
 }
